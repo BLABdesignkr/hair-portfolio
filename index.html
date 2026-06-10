@@ -10,11 +10,11 @@
   <style>
     /* 1. 디자인 시스템 정의 (The Hairbros 런던 시네마틱 무드) */
     :root {
-      --blab-bg-vintage: #0b0c0e;       /* 아날로그 필름 느낌의 따뜻한 다크 차콜 */
+      --blab-bg-vintage: #0b0c0e;       
       --blab-card-bg: #131518;
-      --blab-accent-beige: #d4c5b3;     /* 패션 매거진 톤의 고급스러운 크림 베이지 */
-      --blab-text-pure: #f5f5f7;        /* 편안한 오프화이트 서체 */
-      --blab-text-muted: #868b93;       /* 감성적인 실버 그레이 */
+      --blab-accent-beige: #d4c5b3;     
+      --blab-text-pure: #f5f5f7;        
+      --blab-text-muted: #868b93;       
       --blab-font-serif: 'Playfair Display', Georgia, serif;
     }
 
@@ -62,7 +62,7 @@
       color: var(--blab-accent-beige);
     }
 
-    /* 3. 매거진 히어로 섹션 (시네마틱 대형 타이포그래피) */
+    /* 3. 매거진 히어로 섹션 */
     .blab-hero {
       min-height: 100vh;
       display: flex;
@@ -91,7 +91,6 @@
     .blab-hero-headline .line-1 { animation-delay: 0.1s; }
     .blab-hero-headline .line-2 { animation-delay: 0.3s; font-style: italic; color: var(--blab-accent-beige); }
 
-    /* 히어로 하단 스플릿 레이아웃 */
     .blab-hero-footer {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -107,119 +106,143 @@
       max-width: 540px;
     }
 
-    /* 비대칭 대형 메인 이미지 이미지 */
     .blab-hero-img-box {
-      width: 100%;
-      height: 480px;
-      overflow: hidden;
-      border-radius: 4px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      width: 100%; height: 480px; overflow: hidden; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.4);
     }
     .blab-hero-img-box img {
-      width: 100%; height: 100%; object-fit: cover;
-      transform: scale(1.05);
-      animation: imageZoomOut 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      width: 100%; height: 100%; object-fit: cover; transform: scale(1.05); animation: imageZoomOut 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* 4. 에디토리얼 철학 섹션 (여백의 미) */
-    .blab-section-space {
-      padding: 160px 6%;
-    }
+    .blab-section-space { padding: 160px 6%; }
+    .blab-section-title { font-family: var(--blab-font-serif); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.3; margin-bottom: 20px; }
+    .blab-section-subtitle { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.3em; color: var(--blab-accent-beige); text-transform: uppercase; margin-bottom: 15px; }
 
-    .blab-editorial-statement {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
+    .blab-editorial-statement { max-width: 800px; margin: 0 auto; text-align: center; }
+    .blab-editorial-statement p { font-size: 1.1rem; color: var(--blab-text-muted); line-height: 1.8; max-width: 600px; margin: 0 auto; }
 
-    .blab-editorial-statement h2 {
-      font-family: var(--blab-font-serif);
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: 35px;
-    }
-
-    .blab-editorial-statement p {
-      font-size: 1.1rem;
-      color: var(--blab-text-muted);
-      line-height: 1.8;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* 5. [핵심] 과감한 비대칭 룩북 그리드 (The Hairbros 스타일) */
-    .blab-lookbook-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 40px;
-      row-gap: 120px;
-    }
-
-    .blab-look-item {
-      position: relative;
-    }
-
-    /* 아이템별 비대칭 그리드 좌표 격리 배치 */
+    /* 4. 비대칭 룩북 그리드 */
+    .blab-lookbook-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 40px; row-gap: 120px; }
+    .blab-look-item { position: relative; }
     .item-left-large   { grid-column: 1 / span 6; }
     .item-right-small  { grid-column: 9 / span 5; margin-top: 100px; }
     .item-center-medi  { grid-column: 3 / span 8; }
 
-    .blab-look-thumb {
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      background: var(--blab-card-bg);
-    }
-
-    /* 황금 비율 세로/가로 감성 배치 */
+    .blab-look-thumb { width: 100%; position: relative; overflow: hidden; border-radius: 4px; background: var(--blab-card-bg); }
     .item-left-large .blab-look-thumb  { aspect-ratio: 4 / 5; }
     .item-right-small .blab-look-thumb { aspect-ratio: 2 / 3; }
     .item-center-medi .blab-look-thumb { aspect-ratio: 16 / 10; }
 
-    .blab-look-thumb img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .blab-look-item:hover .blab-look-thumb img {
-      transform: scale(1.04);
-    }
+    .blab-look-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .blab-look-item:hover .blab-look-thumb img { transform: scale(1.04); }
 
-    .blab-look-meta {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
+    .blab-look-meta { margin-top: 20px; display: flex; justify-content: space-between; align-items: baseline; }
+    .blab-look-title { font-family: var(--blab-font-serif); font-size: 1.4rem; font-weight: 400; }
+    .blab-look-tag { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blab-accent-beige); }
 
-    .blab-look-title {
+    /* ==========================================================================
+       [신규] 5. 헤어 디렉터 소개 섹션 (에디토리얼 인물 컷)
+       ========================================================================== */
+    .blab-directors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+    .blab-director-card {
+      text-align: center;
+      cursor: pointer;
+    }
+    .blab-director-img-wrap {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: 25px;
+      position: relative;
+    }
+    .blab-director-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* 잡지 화보 느낌을 위해 기본 흑백/고대비 필터 적용 */
+      filter: grayscale(100%) contrast(1.1);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .blab-director-card:hover .blab-director-img-wrap img {
+      filter: grayscale(0%) contrast(1);
+      transform: scale(1.05);
+    }
+    .blab-director-name {
       font-family: var(--blab-font-serif);
-      font-size: 1.4rem; font-weight: 400;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+    .blab-director-title {
+      font-size: 0.8rem;
+      color: var(--blab-accent-beige);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
     }
 
-    .blab-look-tag {
-      font-size: 0.8rem; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--blab-accent-beige);
+    /* ==========================================================================
+       [신규] 6. 프리미엄 스토어 섹션 (3칸 2줄 배열)
+       ========================================================================== */
+    .blab-store-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      row-gap: 50px;
+      margin-top: 60px;
+    }
+    .blab-product-card {
+      background: var(--blab-card-bg);
+      padding: 40px 30px;
+      text-align: center;
+      border-radius: 4px;
+      border: 1px solid rgba(212, 197, 179, 0.05);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    .blab-product-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212, 197, 179, 0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .blab-product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 25px;
+    }
+    .blab-product-name {
+      font-family: var(--blab-font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+    .blab-product-desc {
+      font-size: 0.9rem;
+      color: var(--blab-text-muted);
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .blab-product-price {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--blab-text-pure);
+    }
+    .blab-store-action {
+      text-align: center;
+      margin-top: 80px;
     }
 
-    /* 6. 시네마틱 매거진 푸터 락업 (매출 전환 버튼) */
+    /* 7. 매거진 푸터 락업 & 버튼 */
     .blab-magazine-footer {
       background: linear-gradient(180deg, transparent, #111215);
       padding: 160px 6% 100px 6%;
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.03);
-    }
-
-    .blab-footer-sub {
-      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.3em;
-      color: var(--blab-accent-beige); text-transform: uppercase; margin-bottom: 25px;
-    }
-
-    .blab-footer-title {
-      font-family: var(--blab-font-serif);
-      font-size: clamp(2.2rem, 5vw, 4.5rem);
-      font-weight: 400; line-height: 1.1; margin-bottom: 45px;
     }
 
     .blab-magazine-btn {
@@ -230,8 +253,9 @@
       padding: 20px 45px;
       font-size: 1.05rem; font-weight: 600;
       letter-spacing: 0.05em;
-      border-radius: 0; /* 각진 매거진 셰이프 선호 */
+      border-radius: 0; 
       cursor: pointer;
+      text-decoration: none;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -242,74 +266,35 @@
       transform: translateY(-3px);
     }
 
-    /* 7. 고감도 다크 팝업 모달 */
+    /* 모달 */
     .blab-modal-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(11, 12, 14, 0.97);
-      backdrop-filter: blur(15px);
-      display: flex; justify-content: center; align-items: center;
-      z-index: 1000; opacity: 0; pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 12, 14, 0.97); backdrop-filter: blur(15px);
+      display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; pointer-events: none; transition: all 0.4s;
     }
-
     .blab-modal-overlay.active { opacity: 1; pointer-events: auto; }
-
-    .blab-modal-box {
-      width: 90%; max-width: 500px;
-      background: var(--blab-card-bg);
-      border: 1px solid rgba(212, 197, 179, 0.2);
-      padding: 40px; position: relative;
-      transform: translateY(30px);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
+    .blab-modal-box { width: 90%; max-width: 500px; background: var(--blab-card-bg); border: 1px solid rgba(212, 197, 179, 0.2); padding: 40px; transform: translateY(30px); transition: transform 0.4s; }
     .blab-modal-overlay.active .blab-modal-box { transform: translateY(0); }
-
-    .blab-modal-close {
-      position: absolute; top: 20px; right: 25px;
-      background: none; border: none; color: var(--blab-text-muted);
-      font-size: 2rem; cursor: pointer;
-    }
+    .blab-modal-close { position: absolute; top: 20px; right: 25px; background: none; border: none; color: var(--blab-text-muted); font-size: 2rem; cursor: pointer; }
     .blab-modal-close:hover { color: white; }
-
     .blab-form-group { margin-bottom: 20px; }
-    
-    .blab-form-label {
-      display: block; font-size: 0.75rem; font-weight: 700; color: var(--blab-accent-beige);
-      margin-bottom: 8px; letter-spacing: 0.1em; text-transform: uppercase;
-    }
-
-    .blab-form-input {
-      width: 100%; background: #0b0c0e;
-      border: 1px solid rgba(255,255,255,0.08); padding: 14px;
-      color: white; font-size: 0.95rem; outline: none; transition: border 0.3s;
-    }
+    .blab-form-label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--blab-accent-beige); margin-bottom: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .blab-form-input { width: 100%; background: #0b0c0e; border: 1px solid rgba(255,255,255,0.08); padding: 14px; color: white; font-size: 0.95rem; outline: none; transition: border 0.3s; }
     .blab-form-input:focus { border-color: var(--blab-accent-beige); }
 
-    /* 스크롤 반응형 Reveal 시스템 */
-    .blab-reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    /* 스크롤 Reveal */
+    .blab-reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
     .blab-reveal.active { opacity: 1; transform: translateY(0); }
 
-    @keyframes revealUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes imageZoomOut {
-      to { transform: scale(1); }
-    }
+    @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes imageZoomOut { to { transform: scale(1); } }
 
-    /* ==========================================================================
-       🚨 모바일 최적화 완벽 대응 (여백 및 비대칭 그리드 수정 시스템)
-       ========================================================================== */
+    /* 반응형 패치 */
     @media (max-width: 1024px) {
       .blab-lookbook-grid { gap: 30px; row-gap: 80px; }
       .item-left-large, .item-right-small, .item-center-medi { grid-column: span 12; margin-top: 0; }
       .blab-hero-footer { grid-template-columns: 1fr; gap: 30px; }
-      .blab-hero-img-box { height: 35px; height: 380px; }
+      .blab-hero-img-box { height: 380px; }
+      .blab-directors-grid, .blab-store-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
@@ -318,13 +303,12 @@
       .blab-nav-badge { font-size: 0.65rem; }
       .blab-hero { padding: 120px 6% 40px 6%; }
       .blab-section-space { padding: 90px 6%; }
-      
       .blab-card { padding: 20px; }
       .blab-look-title { font-size: 1.2rem; }
       .blab-look-meta { margin-top: 12px; }
-      
       .blab-magazine-footer { padding: 100px 6% 60px 6%; }
       .blab-modal-box { padding: 30px 20px; width: 95%; }
+      .blab-directors-grid, .blab-store-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -352,8 +336,8 @@
 
   <section class="blab-section-space" style="background-color: #0e1013;">
     <div class="blab-editorial-statement blab-reveal">
-      <div class="blab-footer-sub" style="margin-bottom: 15px;">Our Philosophy</div>
-      <h2>"모발의 흐름과 텍스처는<br>한 사람이 살아온 고유한 서사."</h2>
+      <div class="blab-section-subtitle">Our Philosophy</div>
+      <h2 class="blab-section-title">"모발의 흐름과 텍스처는<br>한 사람이 살아온 고유한 서사."</h2>
       <p>
         과도한 인위성을 덜어내고 거친 자연스러움을 지향하는 런던 크리에이티브 디렉터들의 가치를 담았습니다. 당신만의 텍스처가 감각적인 긴장감을 완성합니다.
       </p>
@@ -362,27 +346,24 @@
 
   <section class="blab-section-space">
     <div class="blab-lookbook-grid">
-      
       <div class="blab-look-item item-left-large blab-reveal">
         <div class="blab-look-thumb">
-          <img src="https://images.unsplash.com/photo-1574015974293-817f0ebebb74?q=80&w=673&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Look 01">
+          <img src="https://images.unsplash.com/photo-1574015974293-817f0ebebb74?q=80&w=673&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Look 01">
         </div>
         <div class="blab-look-meta">
           <h3 class="blab-look-title">The Raw Texture</h3>
           <span class="blab-look-tag">Style 01 / Shag</span>
         </div>
       </div>
-
       <div class="blab-look-item item-right-small blab-reveal">
         <div class="blab-look-thumb">
-          <img src="https://plus.unsplash.com/premium_photo-1669675936121-6d3d42244ab5?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Look 02">
+          <img src="https://plus.unsplash.com/premium_photo-1669675936121-6d3d42244ab5?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Look 02">
         </div>
         <div class="blab-look-meta">
           <h3 class="blab-look-title">Classic Blunt</h3>
           <span class="blab-look-tag">Style 02 / Bob</span>
         </div>
       </div>
-
       <div class="blab-look-item item-center-medi blab-reveal">
         <div class="blab-look-thumb">
           <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=1200&q=80" alt="Look 03">
@@ -392,20 +373,102 @@
           <span class="blab-look-tag">Style 03 / Editorial</span>
         </div>
       </div>
+    </div>
+  </section>
 
+  <section class="blab-section-space" style="background-color: #0e1013;">
+    <div class="blab-reveal" style="text-align: center;">
+      <div class="blab-section-subtitle">Our Artists</div>
+      <h2 class="blab-section-title" style="margin-bottom: 10px;">The Directors</h2>
+      <p style="color: var(--blab-text-muted); font-size: 1.05rem;">당신의 무드를 완성할 탑 클래스 크리에이티브 디렉터</p>
+    </div>
+    
+    <div class="blab-directors-grid blab-reveal">
+      <div class="blab-director-card">
+        <div class="blab-director-img-wrap">
+          <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=800&q=80" alt="Director Jiyeon">
+        </div>
+        <h3 class="blab-director-name">Jiyeon Kim</h3>
+        <span class="blab-director-title">Master Director</span>
+      </div>
+      <div class="blab-director-card">
+        <div class="blab-director-img-wrap">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" alt="Director Sua">
+        </div>
+        <h3 class="blab-director-name">Sua Lee</h3>
+        <span class="blab-director-title">Creative Director</span>
+      </div>
+      <div class="blab-director-card">
+        <div class="blab-director-img-wrap">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80" alt="Director Haeun">
+        </div>
+        <h3 class="blab-director-name">Haeun Park</h3>
+        <span class="blab-director-title">Art Director</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="blab-section-space">
+    <div class="blab-reveal" style="text-align: center;">
+      <div class="blab-section-subtitle">Aesthetic Products</div>
+      <h2 class="blab-section-title" style="margin-bottom: 10px;">Signature Care</h2>
+      <p style="color: var(--blab-text-muted); font-size: 1.05rem;">살롱의 터치를 일상에서도 유지할 수 있는 프리미엄 컬렉션</p>
+    </div>
+
+    <div class="blab-store-grid blab-reveal">
+      <div class="blab-product-card">
+        <img class="blab-product-img" src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Product 1">
+        <h3 class="blab-product-name">Noir Texture Spray</h3>
+        <p class="blab-product-desc">자연스러운 볼륨감과 매트한 질감을 부여하는 에디토리얼 전용 텍스처 스프레이.</p>
+        <div class="blab-product-price">₩ 45,000</div>
+      </div>
+      <div class="blab-product-card">
+        <img class="blab-product-img" src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80" alt="Product 2">
+        <h3 class="blab-product-name">Deep Nourish Oil</h3>
+        <p class="blab-product-desc">모발 끝의 갈라짐을 방지하고 윤기를 더하는 고농축 아르간 헤어 오일.</p>
+        <div class="blab-product-price">₩ 52,000</div>
+      </div>
+      <div class="blab-product-card">
+        <img class="blab-product-img" src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=600&q=80" alt="Product 3">
+        <h3 class="blab-product-name">Balancing Shampoo</h3>
+        <p class="blab-product-desc">두피의 유수분 밸런스를 섬세하게 맞춰주는 시그니처 데일리 샴푸.</p>
+        <div class="blab-product-price">₩ 38,000</div>
+      </div>
+      <div class="blab-product-card">
+        <img class="blab-product-img" src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=600&q=80" alt="Product 4">
+        <h3 class="blab-product-name">Sleek Pomade</h3>
+        <p class="blab-product-desc">잔머리를 깔끔하게 고정하고 물을 머금은 듯한 슬릭펌 스타일링용 포마드.</p>
+        <div class="blab-product-price">₩ 32,000</div>
+      </div>
+      <div class="blab-product-card">
+        <img class="blab-product-img" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=80" alt="Product 5">
+        <h3 class="blab-product-name">Recovery Mask</h3>
+        <p class="blab-product-desc">손상된 모발 깊숙이 영양을 채워주는 고농축 인텐시브 리커버리 마스크.</p>
+        <div class="blab-product-price">₩ 65,000</div>
+      </div>
+      <div class="blab-product-card">
+        <img class="blab-product-img" src="https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=600&q=80" alt="Product 6">
+        <h3 class="blab-product-name">Curl Defining Cream</h3>
+        <p class="blab-product-desc">컬의 탄력을 하루 종일 유지시켜주는 가볍고 산뜻한 컬 크림.</p>
+        <div class="blab-product-price">₩ 36,000</div>
+      </div>
+    </div>
+
+    <div class="blab-store-action blab-reveal">
+      <a href="#store" class="blab-magazine-btn">ENTER THE STORE</a>
     </div>
   </section>
 
   <section class="blab-magazine-footer blab-reveal">
-    <div class="blab-footer-sub">Experience the Edit</div>
-    <h2 class="blab-footer-title">당신의 고유한 무드를<br>지금 큐레이션 받으세요.</h2>
+    <div class="blab-section-subtitle">Experience the Edit</div>
+    <h2 class="blab-section-title" style="font-size: clamp(2.2rem, 5vw, 4.5rem); margin-bottom: 45px;">당신의 고유한 무드를<br>지금 큐레이션 받으세요.</h2>
     <button class="blab-magazine-btn" id="blabOpenModal">BOOK AN APPOINTMENT</button>
   </section>
 
   <div class="blab-modal-overlay" id="blabModal">
     <div class="blab-modal-box">
       <button class="blab-modal-close" id="blabCloseModal">&times;</button>
-      <div class="blab-footer-sub" style="margin-bottom: 10px;">Reservation</div>
+      <div class="blab-section-subtitle" style="margin-bottom: 10px;">Reservation</div>
       <h2 class="blab-look-title" style="font-size: 1.8rem; margin-bottom: 20px; font-family: var(--blab-font-serif);">에디토리얼 세션 예약</h2>
       
       <form onsubmit="handleFormSubmit(event)">
@@ -427,7 +490,6 @@
   </div>
 
   <script>
-    /* 1. 순수 JS 기반 에디토리얼 스크롤 Reveal 스크립트 */
     const revealElements = document.querySelectorAll('.blab-reveal');
     const revealOnScroll = () => {
       revealElements.forEach(element => {
@@ -441,7 +503,6 @@
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
 
-    /* 2. 감성 모달 윈도우 인터랙션 제어 */
     const openBtn = document.getElementById('blabOpenModal');
     const closeBtn = document.getElementById('blabCloseModal');
     const modal = document.getElementById('blabModal');
